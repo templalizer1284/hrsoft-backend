@@ -22,7 +22,9 @@ public class Test_Controller_Rest_Client {
 	@WithMockUser
 	public void get() throws Exception {
 		this.mvc.perform(
-				MockMvcRequestBuilders.get("/api/client/get"))
+				MockMvcRequestBuilders.get("/api/client/get")
+				.param("all", "true")
+				.param("name", "test"))
 		.andExpect(status().is4xxClientError());
 	}
 	
