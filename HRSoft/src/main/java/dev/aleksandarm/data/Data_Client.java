@@ -8,9 +8,7 @@ import jakarta.persistence.Id;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
 @Entity
-@NoArgsConstructor
 public class Data_Client {
 	
 	@Id
@@ -21,6 +19,47 @@ public class Data_Client {
 	
 	// Number of employees. This is updated dynamically
 	// with employee recruitment/layoff/relocation.
-	@Column(columnDefinition = "default 0")
+	@Column(columnDefinition = "integer default 0")
 	private Integer noe;
+
+	public Data_Client() {
+		super();
+	}
+
+	public Data_Client(String name, Integer noe) {
+		super();
+		this.name = name;
+		this.noe = noe;
+	}
+
+	public Data_Client(Long id, String name, Integer noe) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.noe = noe;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Integer getNoe() {
+		return noe;
+	}
+
+	public void setNoe(Integer noe) {
+		this.noe = noe;
+	}
 }
