@@ -3,6 +3,8 @@ package dev.aleksandarm.services.implementations;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import dev.aleksandarm.data.Data_Sector;
@@ -18,5 +20,17 @@ public class Service_Impl_Sector implements Service_Sector {
 	@Override
 	public List<Data_Sector> get() {
 		return repo.findAll();
+	}
+	
+	@Override
+	public ResponseEntity<String> add(String name) {
+		if(repo.existsByName(name)) {
+			return new ResponseEntity<String> ("", HttpStatus.IM_USED);
+		} else {
+			Data_Sector sector = new Data_Sector(name);
+			repo.save(sector);
+			
+			return new ResponseEntity<String> ("Sector saved.", HttpStatus.ACCEPTED);
+		}
 	}
 }

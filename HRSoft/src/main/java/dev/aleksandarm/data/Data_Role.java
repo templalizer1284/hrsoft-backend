@@ -14,24 +14,21 @@ public class Data_Role {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	private String role;
-	private Integer pph; // Price per hour
-	
+	private String name;
+
 	public Data_Role() {
 		super();
 	}
 
-	public Data_Role(String role, Integer pph) {
+	public Data_Role(String name) {
 		super();
-		this.role = role;
-		this.pph = pph;
+		this.name = name;
 	}
 
-	public Data_Role(Long id, String role, Integer pph) {
+	public Data_Role(Long id, String name) {
 		super();
 		this.id = id;
-		this.role = role;
-		this.pph = pph;
+		this.name = name;
 	}
 
 	public Long getId() {
@@ -42,19 +39,11 @@ public class Data_Role {
 		this.id = id;
 	}
 
-	public String getRole() {
-		return role;
+	public String getName() {
+		return name;
 	}
 
-	public void setRole(String role) {
-		this.role = role;
-	}
-
-	public Integer getPph() {
-		return pph;
-	}
-
-	public void setPph(Integer pph) {
-		this.pph = pph;
+	public void setName(String name) {
+		this.name = name;
 	}
 }

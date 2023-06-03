@@ -25,6 +25,11 @@ public class Data_Client {
 	public Data_Client() {
 		super();
 	}
+	
+	public Data_Client(String name) {
+		super();
+		this.name = name;
+	}
 
 	public Data_Client(String name, Integer noe) {
 		super();

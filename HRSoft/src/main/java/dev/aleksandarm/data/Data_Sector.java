@@ -14,21 +14,21 @@ public class Data_Sector {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	private String sector;
+	private String name;
 
 	public Data_Sector() {
 		super();
 	}
 
-	public Data_Sector(String sector) {
+	public Data_Sector(String name) {
 		super();
-		this.sector = sector;
+		this.name = name;
 	}
 
-	public Data_Sector(Long id, String sector) {
+	public Data_Sector(Long id, String name) {
 		super();
 		this.id = id;
-		this.sector = sector;
+		this.name = name;
 	}
 
 	public Long getId() {
@@ -39,11 +39,11 @@ public class Data_Sector {
 		this.id = id;
 	}
 
-	public String getSector() {
-		return sector;
+	public String getName() {
+		return name;
 	}
 
-	public void setSector(String sector) {
-		this.sector = sector;
+	public void setName(String name) {
+		this.name = name;
 	}
 }

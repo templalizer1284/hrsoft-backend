@@ -19,7 +19,7 @@ import dev.aleksandarm.services.Service_Expenses;
 @RestController
 @CrossOrigin()
 @RequestMapping(value = "/expenses")
-public class Controller_Expenses {
+public class Controller_Rest_Expenses {
 	
 	@Autowired
 	Service_Expenses service;
