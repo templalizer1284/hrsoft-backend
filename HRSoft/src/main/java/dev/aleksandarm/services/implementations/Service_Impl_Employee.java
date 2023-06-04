@@ -2,6 +2,7 @@ package dev.aleksandarm.services.implementations;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -29,6 +30,15 @@ public class Service_Impl_Employee implements Service_Employee{
 	Repo_Sector sector_repo;
 	
 	@Override
+	public ResponseEntity<Data_Employee> get_one(Long id) {
+		if(repo.existsById(id)) {
+			return new ResponseEntity<Data_Employee> (repo.getById(id), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<> (HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@Override
 	public List<Data_Employee> get() {
 		return repo.findAll();
 	}
@@ -44,19 +54,24 @@ public class Service_Impl_Employee implements Service_Employee{
 	}
 	
 	@Override
-	public ResponseEntity<String> modify(Long id, String sector) {
+	public ResponseEntity<String> modify(Long id, String sector, String role, Integer pph, String client) {
+		
+		if(id == null) {
+			return new ResponseEntity<> (HttpStatus.OK);
+		}
+		
 		if(repo.existsById(id)) {
-			if(repo.existsBySector(sector)) {
-				return new ResponseEntity<String> ("Employee is already in that sector.", HttpStatus.CONFLICT);
-			} else {
-				Data_Employee emp = repo.getById(id); // getById is deprecated
-				emp.setSector(sector);
-				
-				repo.save(emp); 
-				
-				return new ResponseEntity<String> ("Contract modified.", HttpStatus.ACCEPTED);
-			}
-		} else {
+			Data_Employee emp = repo.getById(id); // getById is deprecated
+			emp.setSector(sector);
+			emp.setRole(role);
+			emp.setPph(pph);
+			emp.setClient(client);
+			
+			repo.save(emp); 
+			
+			return new ResponseEntity<String> ("Contract modified.", HttpStatus.ACCEPTED);
+		}
+		else {
 			return new ResponseEntity<String> ("Employee doesn't exist by that ID.", HttpStatus.NOT_FOUND);
 		}
 	}

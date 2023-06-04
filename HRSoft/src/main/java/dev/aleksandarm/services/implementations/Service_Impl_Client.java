@@ -22,9 +22,12 @@ public class Service_Impl_Client implements Service_Client {
 	public ResponseEntity<String> add(String name) {
 
 		if (repo.existsByName(name)) {
-			return new ResponseEntity<>("Client already exists by that name.", HttpStatus.NOT_ACCEPTABLE);
+			return new ResponseEntity<String>("Client already exists by that name.", HttpStatus.NOT_ACCEPTABLE);
 		} else {
-			return new ResponseEntity<>("Client successfully registered.", HttpStatus.ACCEPTED);
+			Data_Client c = new Data_Client();
+			c.setName(name);
+			repo.save(c);
+			return new ResponseEntity<String>("Client successfully registered.", HttpStatus.ACCEPTED);
 		}
 	}
 

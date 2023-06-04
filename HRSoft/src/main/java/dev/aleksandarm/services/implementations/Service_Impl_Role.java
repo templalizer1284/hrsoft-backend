@@ -27,12 +27,12 @@ public class Service_Impl_Role implements Service_Role{
 		if(repo.existsByName(name)) {
 			return new ResponseEntity<String> ("Role by that name already exist.", HttpStatus.IM_USED);
 		} else {
-			Data_Role role = new Data_Role( name );
+			Data_Role role = new Data_Role();
+			role.setName(name);
 			repo.save(role);
 			return new ResponseEntity<String> ("Role registered.", HttpStatus.ACCEPTED);
 		}
 	}
-	
 	
 	@Override
 	public ResponseEntity<String> delete(String name) {

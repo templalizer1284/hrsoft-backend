@@ -97,6 +97,8 @@ public class Service_Impl_Expenses implements Service_Expenses{
 		}
 		// Get Salaries
 		List<Data_Employee> emp = employee_repo.findAll();
+		
+		System.out.print(emp.get(0).getPph());
 				
 		int sal_sum = 0; // Salary sum
 				

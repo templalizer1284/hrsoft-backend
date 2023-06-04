@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,5 +31,10 @@ public class Controller_Rest_Sector {
 	@PostMapping(path = "/add")
 	public ResponseEntity<String> add(@RequestParam("name") String name) {
 		return service.add(name);
+	}
+	
+	@DeleteMapping(path = "/delete")
+	public ResponseEntity<String> delete(@RequestParam("name") String name) {
+		return service.delete(name);
 	}
 }

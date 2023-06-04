@@ -6,4 +6,5 @@ import dev.aleksandarm.data.Data_Sector;
 
 public interface Repo_Sector extends JpaRepository<Data_Sector, Long> {
 	Boolean existsByName(String name);
+	Data_Sector findByName(String name);
 }

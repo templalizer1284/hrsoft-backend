@@ -33,4 +33,15 @@ public class Service_Impl_Sector implements Service_Sector {
 			return new ResponseEntity<String> ("Sector saved.", HttpStatus.ACCEPTED);
 		}
 	}
+	
+	@Override
+	public ResponseEntity<String> delete(String name) {
+		if(repo.existsByName(name)) {
+			Data_Sector s = repo.findByName(name);
+			repo.delete(s);
+			return new ResponseEntity<String> ("Sector deleted.", HttpStatus.OK);
+		} else {
+			return new ResponseEntity<String> ("Sector by that name doesn't exist.", HttpStatus.NOT_FOUND);
+		}
+	}
 }
