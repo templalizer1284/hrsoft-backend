@@ -86,26 +86,15 @@ public class Service_Impl_Expenses implements Service_Expenses{
 				
 		int exp_sum = 0;
 				
-		// Check if empty.
-		if(exp.isEmpty()) {
-			return new ResponseEntity<Integer> (0, HttpStatus.ACCEPTED);
-		}
-				
 		// Calculate all expenses.
 		for(int i = 0; i < exp.size(); i++) {
 			exp_sum += exp.get(i).getPrice();
 		}
+		
 		// Get Salaries
 		List<Data_Employee> emp = employee_repo.findAll();
-		
-		System.out.print(emp.get(0).getPph());
 				
 		int sal_sum = 0; // Salary sum
-				
-		// If not empty
-		if(emp.isEmpty()) {
-			return new ResponseEntity<Integer> (0, HttpStatus.ACCEPTED);
-		}
 				
 		// Calculate salaries.
 		for(int i = 0; i < emp.size(); i++) {
