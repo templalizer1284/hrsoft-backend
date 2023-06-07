@@ -1,8 +1,8 @@
 package dev.aleksandarm.services.implementations;
 
+
 import java.time.DayOfWeek;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -10,12 +10,10 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import dev.aleksandarm.data.Data_Employee;
-import dev.aleksandarm.data.Data_Sector;
 import dev.aleksandarm.repositories.Repo_Employee;
 import dev.aleksandarm.repositories.Repo_Sector;
 import dev.aleksandarm.services.Service_Employee;

@@ -1,5 +1,6 @@
 package dev.aleksandarm.services.implementations;
 
+
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.List;
@@ -13,7 +14,6 @@ import org.springframework.stereotype.Service;
 
 import dev.aleksandarm.data.Data_Employee;
 import dev.aleksandarm.data.Data_Expenses;
-import dev.aleksandarm.data.Data_Sector;
 import dev.aleksandarm.repositories.Repo_Employee;
 import dev.aleksandarm.repositories.Repo_Expenses;
 import dev.aleksandarm.repositories.Repo_Sector;
