@@ -21,33 +21,23 @@ public class Data_Income {
 	private String client;
 	private Integer revenue;
 	
-	// If 'onetime' is set to true then this income is one time only for
-	// particular period. By default its false unless stated otherwise.
-	@Column(columnDefinition = "boolean default false")
-	private Boolean onetime;
-	private LocalDate period;
-	
 	public Data_Income() {
 		super();
 	}
 
-	public Data_Income(String name, String client, Integer revenue, Boolean onetime, LocalDate period) {
+	public Data_Income(String name, String client, Integer revenue) {
 		super();
 		this.name = name;
 		this.client = client;
 		this.revenue = revenue;
-		this.onetime = onetime;
-		this.period = period;
 	}
 
-	public Data_Income(Long id, String name, String client, Integer revenue, Boolean onetime, LocalDate period) {
+	public Data_Income(Long id, String name, String client, Integer revenue) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.client = client;
 		this.revenue = revenue;
-		this.onetime = onetime;
-		this.period = period;
 	}
 
 	public Long getId() {
@@ -80,21 +70,5 @@ public class Data_Income {
 
 	public void setRevenue(Integer revenue) {
 		this.revenue = revenue;
-	}
-
-	public Boolean getOnetime() {
-		return onetime;
-	}
-
-	public void setOnetime(Boolean onetime) {
-		this.onetime = onetime;
-	}
-
-	public LocalDate getPeriod() {
-		return period;
-	}
-
-	public void setPeriod(LocalDate period) {
-		this.period = period;
 	}
 }

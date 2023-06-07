@@ -32,7 +32,9 @@ public class Service_Impl_Employee implements Service_Employee{
 	@Override
 	public ResponseEntity<Data_Employee> get_one(Long id) {
 		if(repo.existsById(id)) {
-			return new ResponseEntity<Data_Employee> (repo.getById(id), HttpStatus.OK);
+			Optional<Data_Employee> e = repo.findById(id);
+
+			return new ResponseEntity<Data_Employee> (e.get(), HttpStatus.OK);
 		} else {
 			return new ResponseEntity<> (HttpStatus.NOT_FOUND);
 		}

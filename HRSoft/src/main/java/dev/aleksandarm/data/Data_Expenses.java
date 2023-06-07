@@ -17,34 +17,22 @@ public class Data_Expenses {
 	
 	private String name;
 	private Integer price;
-	private String client; // Client
-	
-	// For particular month and year.
-	// If these are set expense is only one time.
-	@Column(columnDefinition = "integer default 0")
-	private Integer month, year;
 	
 	public Data_Expenses() {
 		super();
 	}
 
-	public Data_Expenses(String name, Integer price, String client, Integer month, Integer year) {
+	public Data_Expenses(String name, Integer price) {
 		super();
 		this.name = name;
 		this.price = price;
-		this.client = client;
-		this.month = month;
-		this.year = year;
 	}
 
-	public Data_Expenses(Long id, String name, Integer price, String client, Integer month, Integer year) {
+	public Data_Expenses(Long id, String name, Integer price) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.price = price;
-		this.client = client;
-		this.month = month;
-		this.year = year;
 	}
 
 	public Long getId() {
@@ -69,29 +57,5 @@ public class Data_Expenses {
 
 	public void setPrice(Integer price) {
 		this.price = price;
-	}
-
-	public String getClient() {
-		return client;
-	}
-
-	public void setClient(String client) {
-		this.client = client;
-	}
-
-	public Integer getMonth() {
-		return month;
-	}
-
-	public void setMonth(Integer month) {
-		this.month = month;
-	}
-
-	public Integer getYear() {
-		return year;
-	}
-
-	public void setYear(Integer year) {
-		this.year = year;
 	}
 }
