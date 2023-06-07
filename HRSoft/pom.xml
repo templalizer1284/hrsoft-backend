@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>dev.aleksandarm</groupId>
-	<artifactId>HRSoft</artifactId>
+	<artifactId>hrsoft</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>HRSoft</name>
 	<description>HR Software for small businesses</description>
